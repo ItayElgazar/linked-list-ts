@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var item_1 = require("./item");
+var item_1 = require("../item");
 var LinkedList = (function () {
     function LinkedList() {
     }
