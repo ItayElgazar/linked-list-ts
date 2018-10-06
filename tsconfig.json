@@ -3,7 +3,9 @@
 	"target": "es5",
 	"module": "commonjs",
 	"declaration": true,
+	"skipLibCheck": true,
 	"outDir": "./lib",
+	"strictPropertyInitialization": false,
 	"strict": true
   },
   "include": ["src"],
