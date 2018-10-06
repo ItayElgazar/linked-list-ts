@@ -1,6 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Item = (function () {
+exports.__esModule = true;
+var Item = /** @class */ (function () {
     function Item(data) {
         this.next = null;
         this.data = data;

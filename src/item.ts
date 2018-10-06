@@ -1,6 +1,6 @@
 export class Item<T> {
 
-	next: Item<T> = null;
+	public next: Item<T> | null = null;
 	public data: T;
 
 	constructor(data: T) {

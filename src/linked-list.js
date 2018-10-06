@@ -1,7 +1,7 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var item_1 = require("../item");
-var LinkedList = (function () {
+exports.__esModule = true;
+var item_1 = require("./item");
+var LinkedList = /** @class */ (function () {
     function LinkedList() {
     }
     LinkedList.prototype.append = function (data) {
@@ -56,3 +56,4 @@ var LinkedList = (function () {
     };
     return LinkedList;
 }());
+exports.LinkedList = LinkedList;

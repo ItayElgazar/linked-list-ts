@@ -3,7 +3,7 @@ import {ILinkedList} from "./linked-list.interface";
 
 export class LinkedList<T> implements ILinkedList<T> {
 
-	public head: Item<T>;
+	public head: Item<T> | null = null;
 
 	public append(data: T): void {
 		if (!this.head) {
@@ -19,15 +19,16 @@ export class LinkedList<T> implements ILinkedList<T> {
 	}
 
 	public remove(data: T): boolean {
-		let current: Item<T> = this.head;
+		let current = this.head;
 		if (!current) {
 			return false;
-		} else if (this.head.data === data) {
+		} else if (this.head && this.head.data === data) {
 			if (this.head.next) {
 				this.head = this.head.next;
 			} else {
 				this.head = null;
 			}
+			return true;
 		} else {
 			while (current.next !== null) {
 				if (current.next.data === data) {
@@ -40,11 +41,11 @@ export class LinkedList<T> implements ILinkedList<T> {
 		}
 	}
 
-	public get(data: T): Item<T> | undefined {
-		let current: Item<T> = this.head;
+	public get(data: T): Item<T>|undefined  {
+		let current = this.head;
 		if (!current) {
 			return undefined;
-		} else if (this.head.data === data) {
+		} else if (this.head && this.head.data === data) {
 			return this.head;
 		}
 
