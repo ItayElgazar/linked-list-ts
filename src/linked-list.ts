@@ -9,6 +9,7 @@ export class LinkedList<T> implements ILinkedList<T> {
 	public append(data: T): void {
 		if (!this.head) {
 			this.head = new Node<T>(data);
+			this.length++;
 			return;
 		}
 
