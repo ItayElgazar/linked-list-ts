@@ -40,7 +40,7 @@ const isRemoved: boolean = list.remove(5); // true
 #### Converting to array from linked list
 
 ```typescript
-const array = list.toArray();
+const array = list.toArray(); // [1,2,3,4,5]
 ```
 
 
