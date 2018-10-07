@@ -14,7 +14,7 @@ list2.append(1,2,3,4,5); // ERROR
 list2.append("Hello", "World"); // OK
 ```
 
-# Retrieve an item from the list
+#### Retrieve an item from the list
 
 ```typescript
 const list = new LinkedList(1,2,3,4,5);
@@ -23,25 +23,25 @@ console.log(item.prev); // Node(4);
 console.log(item.next); // null
 ```
 
-# Remove item from the list
+#### Remove item from the list
 
 ```typescript
 const isRemoved: boolean = list.remove(5); // true
 ```
 
-# Getting the first item
+#### Getting the first item
 
 ```typescript
 console.log(list.first); // Node(1);
 ```
 
-# Getting the last item
+#### Getting the last item
 
 ```typescript
 console.log(list.last); // Node(5);
 ```
 
-# Getting the list size
+#### Getting the list size
 
 ```typescript
 console.log(list.size); //5
