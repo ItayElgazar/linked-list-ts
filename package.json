@@ -1,6 +1,6 @@
 {
   "name": "linked-list-ts",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/linked-list.js",
   "types": "lib/linked-list.d.ts",

@@ -73,9 +73,18 @@ export class LinkedList<T> implements ILinkedList<T> {
 		return nodes;
 	}
 
+	public forEach(callbackfn: (node: Node<T>, index?: number) => void): void {
+		let current = this.first;
+		let index: number = 0;
+		while (current !== null) {
+			callbackfn(current, index);
+			index++;
+			current = current.next;
+		}
+	}
+
 	private appendOne(data: T): void {
 		const newNode = new Node<T>(data);
-
 		if (!this.head) {
 			this.head = newNode;
 			this.tail = this.head;
