@@ -1,9 +1,17 @@
 # linked-list-ts
 A simple linked list implementation using Typescript
 
-# API Usage
+## Installation
+
+```
+npm install --save linked-list-ts
+```
+
+## API Usage
 
 ```typescript
+import { LinkedList } from "linked-list-ts";
+
 const numbers: number[] = [1,2,3,4,5,6];
 const list = new LinkedList(numbers);
 ```
