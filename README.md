@@ -17,9 +17,17 @@ const list = new LinkedList(numbers);
 ```
 
 ```typescript
-const list2 = new LinkedList<string>();
+const list = new LinkedList<string>();
 list2.append(1,2,3,4,5); // ERROR
 list2.append("Hello", "World"); // OK
+```
+
+#### forEach iterator
+```typescript
+const list = new LinkedList<string>("1","2","4");
+list.forEach((node, index) => {
+    console.log(node, index);
+});
 ```
 
 #### Retrieve an item from the list
