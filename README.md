@@ -37,6 +37,13 @@ console.log(item.next); // null
 const isRemoved: boolean = list.remove(5); // true
 ```
 
+#### Converting to array from linked list
+
+```typescript
+const array = list.toArray();
+```
+
+
 #### Getting the first item
 
 ```typescript
