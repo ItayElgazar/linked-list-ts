@@ -3,50 +3,44 @@ import {Node} from "./node";
 
 export class LinkedList<T> implements ILinkedList<T> {
 
-	private head: Node<T> | null = null;
-	private length: number = 0;
+	private head: Node<T> | null;
+	private tail: Node<T> | null;
+	private length: number;
 
-	public append(data: T): void {
-		if (!this.head) {
-			this.head = new Node<T>(data);
-			this.length++;
-			return;
-		}
+	constructor(...data: T[]) {
+		this.head = null;
+		this.tail = null;
+		this.length = 0;
+		data.forEach(value => {
+			this.appendOne(value);
+		});
+	}
 
-		let current: Node<T> = this.head;
-		while (current.next) {
-			current = current.next;
-		}
 
-		current.next = new Node(data);
-		current.prev = current;
-
-		this.length++;
+	public append(...data: T[]) {
+		data.forEach(value => {
+			this.appendOne(value);
+		});
 	}
 
 	public remove(data: T): boolean {
-		let current = this.head;
-		if (!current) {
-			return false;
-		} else if (this.head && this.head.data === data) {
-			if (this.head.next) {
-				this.head = this.head.next;
-			} else {
-				this.head = null;
-			}
-			this.length--;
-			return true;
-		} else {
-			while (current.next !== null) {
-				if (current.next.data === data) {
-					current.next = null;
-					return true;
-				}
-				current = current.next;
-				this.length--;
-			}
+		const toRemove = this.get(data);
+		if(!toRemove) {
 			return false;
 		}
+
+		if (toRemove.prev) {
+			if (toRemove === this.tail) {
+				this.tail = toRemove.prev;
+			}
+			toRemove.prev.next = toRemove.next;
+		}
+		if (toRemove.next) {
+			toRemove.next.prev = toRemove.prev;
+		}
+
+		this.length--;
+		return true;
 	}
 
 	public get(data: T): Node<T> | null {
@@ -69,10 +63,45 @@ export class LinkedList<T> implements ILinkedList<T> {
 		return selectedItem;
 	}
 
+	public toArray(): T[] {
+		const nodes: T[] = [];
+		let current = this.head;
+		while (current !== null) {
+			nodes.push(current.data);
+			current = current.next;
+		}
+		return nodes;
+	}
+
+	private appendOne(data: T): void {
+		const newNode = new Node<T>(data);
+
+		if (!this.head) {
+			this.head = newNode;
+			this.tail = this.head;
+			this.length++;
+			return;
+		}
+
+		if (this.tail) {
+			this.tail.next = newNode;
+		}
+		newNode.prev = this.tail;
+		this.tail = newNode;
+		this.length++;
+	}
+
 	get size(): number {
 		return this.length;
 	}
 
+	get last(): Node<T> | null {
+		return this.tail;
+	}
+
+	get first(): Node<T> | null {
+		return this.head;
+	}
 }
 
 
